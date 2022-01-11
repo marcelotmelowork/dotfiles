@@ -1,1 +1,1 @@
-/Volumes/GoogleDrive/My Drive/Mackup/.zshrc
+/Volumes/GoogleDrive/My Drive//Mackup/.zshrc
