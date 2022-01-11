@@ -49,13 +49,19 @@ If you did all of the above you may now follow these install instructions to set
     ~/.dotfiles/fresh.sh
     ```
 
-5. After mackup is synced with your cloud storage, restore preferences by running 
+5. Review the `MACKUP_PATH` in `~/.dotfiles/.zshrc` and after mackup is synced with your cloud storage, restore preferences by running
 
     ```
     mackup restore
     ```
 
-6. Restart your computer to finalize the process
+6. Link the mackup .zshrc to dotfiles:
+
+    ```
+    ln -sf $MACKUP_PATH/.zshrc ~/.dotfiles/.zshrc 
+    ```
+
+7. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
 
