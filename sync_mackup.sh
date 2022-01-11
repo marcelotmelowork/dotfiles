@@ -21,7 +21,7 @@ echo "Adding the files to git to be commited..."
 git add ${DOTFILES}/.mackup.cfg
 git add ${DOTFILES}/.zshrc
 
-echo "Do you want to commit the changes (Y/n)?"
+echo "Do you want to commit and push the changes (Y/n)?"
 read -n1 should_commit
 
 if [ "$should_commit" != "n" ] && [ "$should_commit" != "N" ]; then
