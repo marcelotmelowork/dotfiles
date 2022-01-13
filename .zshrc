@@ -117,9 +117,3 @@ export LANG=en_US.UTF-8
 
 # The fuck
 eval $(thefuck --alias)
-
-# Mackup
-export MACKUP_PATH="/Volumes/GoogleDrive/My Drive"
-
-# Ansible password
-export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ansible_vault_pass
