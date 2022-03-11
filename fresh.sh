@@ -13,6 +13,7 @@ xcode-select --install
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+  git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
 # Check for Homebrew and install if we don't have it
