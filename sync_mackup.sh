@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set -x
-set -e
+# set -e
 
 if [ "${MACKUP_PATH}" = "" ]; then
   echo "Please set the MACKUP_PATH environment variable."
