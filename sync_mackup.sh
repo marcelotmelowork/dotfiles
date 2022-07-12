@@ -27,5 +27,5 @@ read -n1 should_commit
 if [ "$should_commit" != "n" ] && [ "$should_commit" != "N" ]; then
   echo -e "\nCommiting the changes..."
   git commit -am "Sync from Mackup"
-  git push origin main
+  git push -u origin HEAD
 fi
