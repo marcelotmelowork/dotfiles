@@ -7,3 +7,6 @@ alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
+
+# Brew / Pyenv
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
