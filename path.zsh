@@ -33,3 +33,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # User binaries
 export PATH="$HOME/bin:$PATH"
+
+# Cython
+export PATH="$(brew --prefix cython)/bin:$PATH"
