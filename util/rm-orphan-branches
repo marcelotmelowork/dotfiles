@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#set -x
+set -e
+
+DEL_OPT="-d"
+
+FORCE_OPT=$1
+if [ "$FORCE_OPT" == "-f" ]; then
+  DEL_OPT="-D"
+fi
+
+echo "Fetching and pruning remote branches..."
+git fetch --prune
+
+ORPHANS=`git branch -vv | grep ': gone' | grep -v "\*" | awk '{ print $1; }'`
+
+if [ -z "${ORPHANS}" ]; then
+  echo "There are no orphan branches to remove."
+  exit 1
+fi
+
+echo "Branches to delete:"
+echo "$ORPHANS" 
+
+echo "$ORPHANS" | xargs git branch $DEL_OPT
+
