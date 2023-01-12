@@ -19,9 +19,6 @@ export PATH="$(brew --prefix findutils)/libexec/gnubin:$PATH"
 # use homebrew curl
 export PATH="$(brew --prefix curl)/bin:$PATH"
 
-# mysql client
-export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-
 # Visual Studio Code
 export PATH="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/:$PATH"
 

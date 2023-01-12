@@ -5,7 +5,14 @@ export DOTFILES="${HOME}/.dotfiles"
 echo "Setting up your Mac..."
 
 echo "Updating software..."
-sudo softwareupdate -i -a
+while true; do
+    read -p "Do you wish to update the OS? " yn
+    case $yn in
+        [Yy]* ) sudo softwareupdate -i -a; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer y(yes) or n(no).";;
+    esac
+done
 
 echo "Installing XCode Command Line Tools..."
 xcode-select --install
