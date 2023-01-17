@@ -27,3 +27,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # User binaries
 export PATH="$HOME/bin:$PATH"
+
+# pyenv
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
