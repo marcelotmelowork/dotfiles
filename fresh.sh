@@ -45,10 +45,18 @@ brew bundle --file $DOTFILES/Brewfile
 # Symlink the Mackup config file to the home directory
 ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
-# Set macOS preferences - we will run this last because this will reload the shell
-source $DOTFILES/.macos
-
-# copy to custom oh-my-zsh
+# Symlink custom oh-my-zsh
 for custom in `ls $DOTFILES/*.zsh`; do
     ln -s $custom ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+done
+
+# Set macOS preferences - we will run this last because this will reload the shell
+echo "Setting MacOS preferences..."
+while true; do
+    read -p "Have you checked the hostname in .macos file? " yn
+    case $yn in
+        [Yy]* ) source $DOTFILES/.macos; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer y(yes) or n(no).";;
+    esac
 done
