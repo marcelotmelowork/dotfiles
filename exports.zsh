@@ -6,3 +6,6 @@ export AWS_PAGER=""
 
 # Ansible password
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ansible_vault_pass
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
