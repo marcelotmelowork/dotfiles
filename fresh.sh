@@ -47,3 +47,8 @@ ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source $DOTFILES/.macos
+
+# copy to custom oh-my-zsh
+for custom in `ls $DOTFILES/*.zsh`; do
+    ln -s $custom ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+done

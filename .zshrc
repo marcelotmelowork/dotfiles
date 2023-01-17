@@ -80,6 +80,7 @@ plugins=(
   aws
   docker
   git
+  macos
 )
 
 source $ZSH/oh-my-zsh.sh
