@@ -40,3 +40,11 @@ ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source $DOTFILES/.macos
+
+# adding user to sudoers
+sudo tee /etc/sudoers.d/"$(whoami)" > /dev/null << EOF
+$(whoami)    ALL = (ALL) NOPASSWD: ALL
+EOF
+
+# Setting zsh homebrew as system zsh
+sudo dscl . -create /Users/"$(whoami)" UserShell "$(brew --prefix)"//bin/zsh
