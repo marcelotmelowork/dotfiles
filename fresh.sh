@@ -18,13 +18,13 @@ echo "Installing XCode Command Line Tools..."
 xcode-select --install
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
+if test ! "$(which omz)"; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
   git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
 # Check for Homebrew and install if we don't have it
-if test ! $(which brew); then
+if test !" $(which brew)"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
@@ -46,7 +46,7 @@ brew bundle --file $DOTFILES/Brewfile
 ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
 # Symlink custom oh-my-zsh
-for custom in `ls $DOTFILES/*.zsh`; do
+for custom in "$DOTFILES"/*.zsh; do
     ln -s $custom ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 done
 
@@ -60,3 +60,11 @@ while true; do
         * ) echo "Please answer y(yes) or n(no).";;
     esac
 done
+
+# adding user to sudoers
+sudo tee /etc/sudoers.d/"$(whoami)" > /dev/null << EOF
+$(whoami)    ALL = (ALL) NOPASSWD: ALL
+EOF
+
+# Setting zsh homebrew as system zsh
+sudo dscl . -create /Users/"$(whoami)" UserShell "$(brew --prefix)"//bin/zsh
